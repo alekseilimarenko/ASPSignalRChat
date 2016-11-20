@@ -10,7 +10,6 @@
 
         $('#chatroom').append('<p><b>' + htmlEncode(name)
             + '</b>: ' + htmlEncode(message) + '<br/>' + htmlEncode(getTimeNow()) + '</p>');
-        console.log(getTimeNow());
     };
 
     chat.client.onConnected = function (id, userName, allUsers) {
@@ -43,7 +42,6 @@
             chat.server.send($('#username').val(), $('#message').val(), getTimeNow());
             $('#message').val('');
             getTimeNow();
-            console.log(getTimeNow());
         });
 
         $('#btnLogin').click(function () {
