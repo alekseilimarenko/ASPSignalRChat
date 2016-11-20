@@ -1,0 +1,45 @@
+﻿@model ASPSignalRChat.Models.User
+
+<h2>Чат-комната</h2>
+
+    <div class="main">
+
+        <div class="row" id="loginBlock">
+            <div class="editor-label col-md-1">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field col-md-2">
+                @Html.EditorFor(model => model.Name, new {htmlAttributes = new {@class = "form-control", @id = "txtUserName"}})
+            </div>
+            <input type="submit" class="btn btn-info" value="Войти" id="btnLogin"/>
+        </div>
+
+        <div id="chatBody">
+            <div id="header"></div>
+            <div class="panel-group" id="inputForm">
+                <div>
+                    @Html.TextArea("message", "", 3, 80, htmlAttributes: new {@class = "form-control", @id = "message"})
+                </div>
+                <br/>
+                <input type="submit" class="btn btn-info" value="Отправить" id="sendmessage"/>
+            </div>
+            <div class="panel-body" id="chatroom"></div>
+
+            <div class="panel-footer" id="chatusers">
+                <p><b>Все пользователи</b>
+                </p>
+            </div>
+        </div>
+
+        <input id="hdId" type="hidden"/>
+        <input id="username" type="hidden"/>
+
+    </div>
+
+@section Scripts
+{
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.signalR-2.2.1.min.js"></script>
+    <script src="~/signalr/hubs"></script>
+    <script src="~/Scripts/utils.js"></script>
+}
